@@ -1,15 +1,13 @@
-plugins {
-    id 'com.android.application'
-}
+apply plugin: 'com.android.application'
 
 android {
-    namespace 'com.big0soft.hackmanager'
-    compileSdk 32
+  //  namespace 'com.big0soft.hackmanager'
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.big0soft.hackmanager"
-        minSdk 21
-        targetSdk 32
+        minSdk 26
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -23,8 +21,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_9
+        targetCompatibility JavaVersion.VERSION_1_9
+    }
+    buildFeatures {
+        dataBinding true
     }
 }
 
@@ -36,4 +37,36 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    def fragment_version = "1.6.1"
+
+    // Java language implementation
+  //  implementation "androidx.fragment:fragment:$fragment_version"
+    def nav_version = "2.5.3"
+    // Java language implementation
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+        implementation 'com.google.code.gson:gson:2.10.1'
+
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    //    layout fix size
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+    //    animation
+    implementation 'com.airbnb.android:lottie:6.1.0'
+    // http request
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    //    ok http
+    def httpVersion = "4.9.3"
+    implementation "com.squareup.okhttp3:okhttp:$httpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$httpVersion"
+
 }
