@@ -1,4 +1,4 @@
-package com.big0soft.hackmanager;
+package com.big0soft.hackmanager.screen;
 
 import android.os.Bundle;
 
@@ -8,13 +8,18 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.big0soft.hackmanager.R;
+import com.big0soft.hackmanager.VersionAdapter;
 import com.big0soft.hackmanager.databinding.FragmentApplicationVersionBinding;
 import com.big0soft.hackmanager.model.ApplicationVersion;
 import com.big0soft.hackmanager.repository.ApplicationRepository;
@@ -29,6 +34,7 @@ public class ApplicationVersionFragment extends Fragment {
     private RecyclerView recyclerView;
     private VersionAdapter adapter;
 
+    private static final String TAG = "ApplicationVersionFragm";
     private ApplicationVersionViewModel applicationVersionViewModel;
 
 
@@ -46,7 +52,7 @@ public class ApplicationVersionFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_application_version,container,false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_application_version,container,false);
 applicationVersionViewModel.getApplicationsVersion();
         return binding.getRoot();
     }
@@ -61,11 +67,18 @@ applicationVersionViewModel.getApplicationsVersion();
 
 
         binding.recycler.setAdapter(adapter);
+        NavController controller = Navigation.findNavController(view);
+        adapter.setOnClickItem(applicationVersion -> {
+            applicationVersion.setVersion("10");
+           controller.navigate(ApplicationVersionFragmentDirections
+                   .actionApplicationVersionFragmentToEditApplicationFragment(applicationVersion));
+        });
+
         binding.setLifecycleOwner(this);
         applicationVersionViewModel.getApplicationVersionLiveData().observe(getViewLifecycleOwner(), new Observer<List<ApplicationVersion>>() {
             @Override
             public void onChanged(List<ApplicationVersion> applicationVersions) {
-
+adapter.clearData();
                 adapter.addItems(applicationVersions);
             }
         });
@@ -82,4 +95,6 @@ applicationVersionViewModel.getApplicationsVersion();
                   new ApplicationVersion(1,"pm name","verion")
         );
     }
+    
+    
 }

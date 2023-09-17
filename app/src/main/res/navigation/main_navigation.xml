@@ -7,6 +7,18 @@
     <fragment
         android:id="@+id/applicationVersionFragment"
         tools:layout="@layout/fragment_application_version"
-        android:name="com.big0soft.hackmanager.ApplicationVersionFragment"
-        android:label="ApplicationVersionFragment" />
+        android:name="com.big0soft.hackmanager.screen.ApplicationVersionFragment"
+        android:label="ApplicationVersionFragment" >
+        <action
+            android:id="@+id/action_applicationVersionFragment_to_editApplicationFragment"
+            app:destination="@id/editApplicationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editApplicationFragment"
+        android:name="com.big0soft.hackmanager.screen.EditApplicationFragment"
+        android:label="EditApplicationFragment" >
+        <argument
+            android:name="args_application"
+            app:argType="com.big0soft.hackmanager.model.ApplicationVersion" />
+    </fragment>
 </navigation>

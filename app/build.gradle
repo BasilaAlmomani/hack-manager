@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: "androidx.navigation.safeargs"
 android {
   //  namespace 'com.big0soft.hackmanager'
     compileSdk 33

@@ -1,8 +1,13 @@
 package com.big0soft.hackmanager.model;
 
-public class ApplicationVersion {
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+public class ApplicationVersion implements Serializable {
     private int id;
     private String version;
+ //   @SerializedName("package_name")
     private String packageName;
 
 
