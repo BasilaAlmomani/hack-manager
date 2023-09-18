@@ -57,7 +57,10 @@ public class EditApplicationFragment extends Fragment {
         ApplicationVersion applicationVersion = args.getArgsApplication();
         binding.fragmentEditButtonChangeVersion.setOnClickListener(v->{
             String version = binding.fragmentEditEditTextVersion.getText().toString().trim();
+
             applicationVersionViewModel.editVersion(version,applicationVersion.getPackageName());
+
+            requireActivity().onBackPressed();
         });
 
     }

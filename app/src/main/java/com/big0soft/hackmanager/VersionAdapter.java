@@ -80,8 +80,8 @@ public class VersionAdapter extends RecyclerView.Adapter<VersionAdapter.Versions
             version=itemView.findViewById(R.id.versio);
             version.setText(applicationVersion.getVersion());
 
-            id=itemView.findViewById(R.id.id);
-            id.setText(String.valueOf(applicationVersion.getId()));
+//            id=itemView.findViewById(R.id.id);
+//            id.setText(String.valueOf(applicationVersion.getId()));
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
