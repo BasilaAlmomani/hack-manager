@@ -21,6 +21,8 @@ private Retrofit retrofit;
             synchronized (ClientConfig.class){
                 instance = new ClientConfig();
             }
+
+
         }
         return instance;
     }
