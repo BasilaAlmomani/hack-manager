@@ -13,7 +13,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +21,13 @@ import com.big0soft.hackmanager.R;
 import com.big0soft.hackmanager.VersionAdapter;
 import com.big0soft.hackmanager.databinding.FragmentApplicationVersionBinding;
 import com.big0soft.hackmanager.model.ApplicationVersion;
-import com.big0soft.hackmanager.repository.ApplicationRepository;
 import com.big0soft.hackmanager.viewmodel.ApplicationVersionViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ApplicationVersionFragment extends Fragment {
+
     private FragmentApplicationVersionBinding binding;
     private RecyclerView recyclerView;
     private VersionAdapter adapter;

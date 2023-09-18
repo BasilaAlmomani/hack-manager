@@ -13,7 +13,7 @@ private Retrofit retrofit;
         retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://192.168.68.113/hack1/hack/api/v1/")
+                .baseUrl("http://192.168.1.39/hack1/hack/api/v1/")
                 .build();
     }
     public static ClientConfig getInstance() {

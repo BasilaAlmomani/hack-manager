@@ -40,4 +40,5 @@ public class ApplicationVersion implements Serializable {
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
+
 }
